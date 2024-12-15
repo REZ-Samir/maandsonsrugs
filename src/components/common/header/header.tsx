@@ -6,20 +6,21 @@ import Logo from "@/../public/assets/MA&SONS.png";
 
 function Header() {
   return (
-    <section className="bg-[#FFFAFA] p-4 shadow-md fixed w-full z-50">
-      <header className="flex justify-between items-center max-w-screen-2xl  md:mx-auto ">
-        <div className="w-[105px] h-[24px]">
-          <Image src={Logo} alt="" width={500} height={500} />
-        </div>
-        <nav className=" hidden md:block ">
+    <section className="bg-[#FFFAFA]/80 backdrop-blur-sm px-4 py-2 shadow-md fixed w-full z-50">
+      <header className="flex justify-between items-center max-w-screen-2xl md:mx-auto">
+        <Link href={"/"}>
+          <div className="w-[105px] h-[24px]">
+            <Image src={Logo} alt="Logo" width={500} height={500} />
+          </div>
+        </Link>
+        <nav className="hidden md:block">
           <ul className="flex gap-4">
             <li className="relative group">
-              <Link href={"/"} className="inline-block w-full ">
+              <Link href={"/"} className="inline-block w-full">
                 Home
               </Link>
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
             </li>
-
             <li className="relative group">
               <Link href={"/about"}>About</Link>
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
@@ -45,7 +46,7 @@ function Header() {
             Custom Rug
           </button>
           <button className="block md:hidden">
-            <Image src={HamburgerIcon} alt="" width={24} height={24} />
+            <Image src={HamburgerIcon} alt="Menu" width={24} height={24} />
           </button>
         </div>
       </header>

@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "title": "Our History",
+    "description": "Founded in 1997, with the belief that luxury is determined throughrespect for craftsmanship, community and innovative creation, The RugCompany is renowned for crafting the finest luxury rugs in the world.Taking a modern approach to age-old techniques, each collectioncontinues to reinvent the notion of interior design."
+  },
+  "history": "",
+  "founders": {
+    "header": "Meet Our Founders",
+    "founder": [
+      {
+        "founderImg": "/assets/about/founder-1.jpg",
+        "founderName": "Javed Ansari",
+        "founderDetail": "dskfjsd akll jd lakjflskdjf kjfakdlf"
+      },
+      {
+        "founderImg": "/assets/about/founder-2.jpg",
+        "founderName": "Javed Ansari",
+        "founderDetail": "dskfjsd akll jd lakjflskdjf kjfakdlf"
+      },
+      {
+        "founderImg": "/assets/about/founder-3.jpg",
+        "founderName": "Javed Ansari",
+        "founderDetail": "dskfjsd akll jd lakjflskdjf kjfakdlf"
+      }
+    ]
+  }
+}
