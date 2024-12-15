@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "title": "Elevate Every Room with Luxurious, Handcrafted Rugs",
+    "subtitle": "MA&SONS - Style Meets Comfort",
+    "bgImage": "/assets/home/hero-bg.png",
+    "heroHighlight": [
+      {
+        "carpetImg": "/assets/home/new_arrival_1.webp",
+        "carpetName": "Midnight Oasis",
+        "carpetType": "Hand Tufted"
+      },
+      {
+        "carpetImg": "/assets/home/new_arrival_2.jpg",
+        "carpetName": "Ariyal",
+        "carpetType": "Hand Tufted"
+      },
+      {
+        "carpetImg": "/assets/home/new_arrival_3.jpg",
+        "carpetName": "Oyster",
+        "carpetType": "Hand Tufted"
+      },
+      {
+        "carpetImg": "/assets/home/new_arrival_1.webp",
+        "carpetName": "Midnight Oasis 4",
+        "carpetType": "Hand Tufted"
+      }
+    ]
+  },
+  "newArrival": {
+    "header": "New Arrival",
+    "newArrivalCarousel": [
+      {
+        "carpetImg": "/assets/home/new_arrival_1.webp",
+        "hoverImg": "/assets/home/new_arrival_2.jpg",
+        "carpetName": "River Shell",
+        "carpetType": "Hand Tufted",
+        "price": "3585"
+      },
+      {
+        "carpetImg": "/assets/home/new_arrival_2.jpg",
+        "hoverImg": "/assets/home/new_arrival_3.jpg",
+
+        "carpetName": "Midnight Oasis 2",
+        "carpetType": "Hand Tufted",
+        "price": "3999"
+      },
+      {
+        "carpetImg": "/assets/home/new_arrival_3.jpg",
+        "hoverImg": "/assets/home/new_arrival_1.webp",
+
+        "carpetName": "Oyster",
+        "carpetType": "Hand Tufted",
+        "price": "4999"
+      },
+      {
+        "carpetImg": "/assets/home/new_arrival_1.webp",
+        "hoverImg": "/assets/home/new_arrival_2.jpg",
+
+        "carpetName": "Midnight Oasis 4",
+        "carpetType": "Hand Tufted",
+        "price": "48000"
+      }
+    ]
+  },
+  "techniqueAndCraftmanship": [
+    {
+      "img": "/assets/home/craftmanship.webp",
+      "title": "Ancient techniques passed down through many generations and the finest natural materials. Experience the joy of a handmade rug.",
+      "btnTitle": "View more about craftmanship"
+    },
+    {
+      "img": "/assets/home/technique.webp",
+      "title": "We continue to invest in techniques that allow client creativity to flourish while guaranteeing quality design that is built to last.",
+      "btnTitle": "Read about material and technique"
+    }
+  ],
+  "capterGallery": [
+    "/assets/home/gallery_img_1",
+    ""
+  ]
+}

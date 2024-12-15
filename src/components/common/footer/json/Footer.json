@@ -1,0 +1,72 @@
+{
+  "navigation": [
+    {
+      "title": "Get In Touch",
+      "navList": [
+        {
+          "link": "",
+          "name": "Contact Us"
+        },
+        {
+          "link": "",
+          "name": "+91 28734892342"
+        },
+        {
+          "link": "",
+          "name": "Email Us"
+        }
+      ]
+    },
+    {
+      "title": "Rugs",
+      "navList": [
+        {
+          "link": "",
+          "name": "Hand Tufted"
+        },
+        {
+          "link": "",
+          "name": "Hand Knotted"
+        },
+        {
+          "link": "",
+          "name": "Loom"
+        }
+      ]
+    },
+    {
+      "title": "Our Company",
+      "navList": [
+        {
+          "link": "",
+          "name": "Our History"
+        },
+        {
+          "link": "",
+          "name": "Material and Technique"
+        },
+        {
+          "link": "",
+          "name": "Our craftmanship"
+        }
+      ]
+    },
+    {
+      "title": "Other",
+      "navList": [
+        {
+          "link": "",
+          "name": "FAQs"
+        },
+        {
+          "link": "",
+          "name": "Privacy and Policy"
+        },
+        {
+          "link": "",
+          "name": "Terms and Conditions"
+        }
+      ]
+    }
+  ]
+}
