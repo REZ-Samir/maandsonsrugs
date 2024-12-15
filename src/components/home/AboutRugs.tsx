@@ -19,7 +19,7 @@ function AboutRugs() {
               className="w-full  max-h-[700px]"
             />
             <p className="text-sm sm:text-xl my-3 ">{data.title}</p>
-            <Link href={"/"}>
+            <Link href={"/comingsoon"}>
               <button className="flex w-full items-center justify-between max-w-96 border border-black rounded-md px-4 py-2 text-sm sm:text-md md:text-lg">
                 {data.btnTitle}
                 <Image

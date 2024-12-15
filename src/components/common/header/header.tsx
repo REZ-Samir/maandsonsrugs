@@ -26,15 +26,15 @@ function Header() {
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
             </li>
             <li className="relative group">
-              <Link href={"/rugs"}>Rugs</Link>
+              <Link href={"/comingsoon"}>Rugs</Link>
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
             </li>
             <li className="relative group">
-              <Link href={"/inspiration"}>Inspiration</Link>
+              <Link href={"/comingsoon"}>Inspiration</Link>
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
             </li>
             <li className="relative group">
-              <Link href={"/contact"} className="inline-block w-full">
+              <Link href={"/comingsoon"} className="inline-block w-full">
                 Contact
               </Link>
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
