@@ -25,3 +25,7 @@ export function CustomSection({
     </section>
   );
 }
+
+export function Divider(){
+  return <div className="h-[40px] sm:h-[60px]"> </div>;
+}

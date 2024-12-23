@@ -1,3 +1,4 @@
+import { Divider } from "@/components/common/CommonUtility";
 import AboutRugs from "@/components/home/AboutRugs";
 import Gallery from "@/components/home/Gallery";
 import Hero from "@/components/home/Hero";
@@ -7,13 +8,13 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="h-[40px] sm:h-[60px]"> </div>
+      <Divider />
       <NewArrival />
-      <div className="h-[40px] sm:h-[60px]"> </div>
+      <Divider />
       <AboutRugs />
-      <div className="h-[40px] sm:h-[60px]"> </div>
-      <Gallery/>
-      <div className="h-[40px] sm:h-[60px]"> </div>
+      <Divider />
+      <Gallery />
+      <Divider />
     </>
   );
 }
