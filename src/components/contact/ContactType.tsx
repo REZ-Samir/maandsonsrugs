@@ -7,8 +7,8 @@ import { CustomSection } from "../common/CommonUtility";
 
 interface ContactTypeInterface {
   icon: any;
-  title: String;
-  subtitle: String;
+  title: string;
+  subtitle: string;
 }
 
 function ContactType() {
