@@ -6,7 +6,7 @@ import NotePad from "@/../public/svgs/notepad.svg";
 import { CustomSection } from "../common/CommonUtility";
 
 interface ContactTypeInterface {
-  icon: any;
+  icon: string;
   title: string;
   subtitle: string;
 }
