@@ -4,15 +4,15 @@
       "title": "Get In Touch",
       "navList": [
         {
-          "link": "/comingsoon",
+          "link": "/contact",
           "name": "Contact Us"
         },
         {
-          "link": "/comingsoon",
+          "link": "/contact",
           "name": "+91 28734892342"
         },
         {
-          "link": "/comingsoon",
+          "link": "/contact",
           "name": "Email Us"
         }
       ]
