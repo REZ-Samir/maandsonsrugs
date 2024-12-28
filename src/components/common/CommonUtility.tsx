@@ -26,6 +26,16 @@ export function CustomSection({
   );
 }
 
-export function Divider(){
-  return <div className="h-[40px] sm:h-[60px]"> </div>;
+export function Divider({
+  maxHeight,
+  minHeight,
+}: {
+  maxHeight?: string;
+  minHeight?: string;
+}) {
+  return (
+    <div
+      className={`h-[${minHeight ?? "40px"}] sm:h-[${maxHeight ?? "60px"}]`}
+    />
+  );
 }

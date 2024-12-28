@@ -26,7 +26,7 @@ function Header() {
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
             </li>
             <li className="relative group">
-              <Link href={"/comingsoon"}>Rugs</Link>
+              <Link href={"/rugs"}>Rugs</Link>
               <span className="absolute left-0 bottom-0 h-[2px] bg-black w-0 transition-all duration-500 group-hover:w-full"></span>
             </li>
             <li className="relative group">

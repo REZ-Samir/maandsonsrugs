@@ -1,33 +1,27 @@
-import Image from "next/image";
 import React from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../ui/carousel";
 import HeaderTitle, { CustomSection } from "../common/CommonUtility";
-
-import homeData from "./json/Home.json";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import Image from "next/image";
 import Link from "next/link";
+import homeData from "../home/json/Home.json";
+
 
 interface NewArrivalInterface {
-  header: string;
-  newArrivalCarousel: {
-    carpetImg: string;
-    hoverImg: string;
-    carpetName: string;
-    carpetType: string;
-    price: string;
-  }[];
-}
-function NewArrival() {
-  const newArrivalData: NewArrivalInterface = homeData.newArrival;
+    header: string;
+    newArrivalCarousel: {
+      carpetImg: string;
+      hoverImg: string;
+      carpetName: string;
+      carpetType: string;
+      price: string;
+    }[];
+  }
 
+function SimilarRugs() {
+    const newArrivalData: NewArrivalInterface = homeData.newArrival;
   return (
     <CustomSection>
-      <HeaderTitle title={newArrivalData.header} />
+      <HeaderTitle title="More of This Design" />
       <Carousel className=" ">
         <CarouselContent>
           {newArrivalData.newArrivalCarousel.map((data, index) => (
@@ -62,4 +56,4 @@ function NewArrival() {
   );
 }
 
-export default NewArrival;
+export default SimilarRugs;

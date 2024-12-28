@@ -1,20 +1,21 @@
 import Image from "next/image";
 import React from "react";
 import homeData from "./json/Home.json";
+import Link from "next/link";
 
 interface HeroInterface {
   title: string;
   subtitle: string;
   bgImage: string;
   heroHighlight: {
-      carpetImg?: string;
-      carpetName: string;
-      carpetType: string;
+    carpetImg?: string;
+    carpetName: string;
+    carpetType: string;
   }[];
 }
 
 function Hero() {
-  const heroData: HeroInterface |undefined = homeData.hero;
+  const heroData: HeroInterface | undefined = homeData.hero;
   return (
     <section className=" h-[500px] md:h-dvh relative">
       <div
@@ -30,19 +31,21 @@ function Hero() {
         <h4 className="home-hero-subtitle">{heroData.subtitle}</h4>
         <div className="homer-hero-hover-card-wrapper">
           {heroData.heroHighlight.map((data, index) => (
-            <div key={index} className="group home-hero-hover-card">
-              <Image
-                src={data.carpetImg ??""}
-                alt=""
-                className="home-hero-hover-card__image"
-                width={500}
-                height={500}
-              />
-              <div className="home-hero-hover-card__text">
-                <h4>{data.carpetName}</h4>
-                <p>{data.carpetType}</p>
+            <Link key={index} href={"/rugs/one"}>
+              <div className="group home-hero-hover-card">
+                <Image
+                  src={data.carpetImg ?? ""}
+                  alt=""
+                  className="home-hero-hover-card__image"
+                  width={500}
+                  height={500}
+                />
+                <div className="home-hero-hover-card__text">
+                  <h4>{data.carpetName}</h4>
+                  <p>{data.carpetType}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
