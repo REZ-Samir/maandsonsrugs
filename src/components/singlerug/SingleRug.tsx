@@ -1,6 +1,5 @@
 import React from "react";
 import { CustomSection } from "../common/CommonUtility";
-import Image from "next/image";
 import SelectColor from "./components/SelectColor";
 import SelectSize from "./components/SelectSize";
 import RugDetail from "./components/RugDetail";

@@ -4,7 +4,7 @@ import SimilarRugs from "@/components/singlerug/SimilarRugs";
 import SingleRug from "@/components/singlerug/SingleRug";
 import React from "react";
 
-function page({ params }: { params: { slug: string } }) {
+function page() {
   return (
     <div>
       <Divider />
