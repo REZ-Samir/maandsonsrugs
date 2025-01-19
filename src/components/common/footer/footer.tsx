@@ -9,7 +9,7 @@ function Footer() {
   return (
     <div className="bg-black text-white">
       <CustomSection>
-        <div className="flex   sm:flex-row sm:justify-between  py-8 sm:py-14 max-w-screen-xl flex-wrap">
+        <div className="flex sm:flex-row sm:justify-between  py-8 sm:py-14 max-w-screen-xl flex-wrap">
           <div className="basis-full sm:basis-auto mb-4">
             <Link href={"/"}>
               <Image

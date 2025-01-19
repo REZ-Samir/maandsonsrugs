@@ -2,30 +2,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-function RugImages() {
-  const images = [
-    "/assets/home/new_arrival_1.webp",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_3.jpg",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_1.webp",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_3.jpg",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_1.webp",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_3.jpg",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_1.webp",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_3.jpg",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_1.webp",
-    "/assets/home/new_arrival_2.jpg",
-    "/assets/home/new_arrival_3.jpg",
-    "/assets/home/new_arrival_2.jpg",
-  ];
+function RugImages({images}:{images:string[]}) {
+ 
 
   const [mainImage, setMainImage] = useState<number>(0);
 

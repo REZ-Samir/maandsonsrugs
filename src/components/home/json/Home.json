@@ -30,35 +30,36 @@
     "header": "New Arrival",
     "newArrivalCarousel": [
       {
-        "carpetImg": "/assets/home/new_arrival_1.webp",
-        "hoverImg": "/assets/home/new_arrival_2.jpg",
-        "carpetName": "River Shell",
+        "carpetImg": "/assets/home/New Arrival/Meadow Mirage/image_6.JPG",
+        "hoverImg": "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
+        "carpetName": "Meadow Mirage",
         "carpetType": "Hand Tufted",
-        "price": "3585"
+        "price": "3585",
+        "carpet_slug": "meadow-mirage"
       },
       {
         "carpetImg": "/assets/home/new_arrival_2.jpg",
         "hoverImg": "/assets/home/new_arrival_3.jpg",
-
         "carpetName": "Midnight Oasis 2",
         "carpetType": "Hand Tufted",
-        "price": "3999"
+        "price": "3999",
+        "carpet_slug": ""
       },
       {
         "carpetImg": "/assets/home/new_arrival_3.jpg",
         "hoverImg": "/assets/home/new_arrival_1.webp",
-
         "carpetName": "Oyster",
         "carpetType": "Hand Tufted",
-        "price": "4999"
+        "price": "4999",
+        "carpet_slug": ""
       },
       {
         "carpetImg": "/assets/home/new_arrival_1.webp",
         "hoverImg": "/assets/home/new_arrival_2.jpg",
-
         "carpetName": "Midnight Oasis 4",
         "carpetType": "Hand Tufted",
-        "price": "48000"
+        "price": "48000",
+        "carpet_slug": ""
       }
     ]
   },
@@ -74,8 +75,5 @@
       "btnTitle": "Read about material and technique"
     }
   ],
-  "capterGallery": [
-    "/assets/home/gallery_img_1",
-    ""
-  ]
+  "capterGallery": ["/assets/home/gallery_img_1", ""]
 }

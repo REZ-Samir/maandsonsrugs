@@ -1,15 +1,7 @@
 import React from "react";
 
-function RugDetail() {
-  const details = [
-    "47% wool 53% viscose",
-    "taq-4306 - antique white / light turquoise",
-    "modern",
-    "hand tufted",
-    "Handmade in Rural India",
-    "6 months warranty",
-    "indoor use only",
-  ];
+function RugDetail({details}:{details: String[]}) {
+  
 
   return (
     <div className="my-5">

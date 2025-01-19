@@ -42,9 +42,9 @@ function Header() {
           </ul>
         </nav>
         <div>
-          <button className="hidden md:block bg-black px-12 py-3 rounded-full text-white">
+          <Link href={"/comingsoon"} className="hidden md:block bg-black px-12 py-3 rounded-full text-white">
             Custom Rug
-          </button>
+          </Link>
           <button className="block md:hidden">
             <Image src={HamburgerIcon} alt="Menu" width={24} height={24} />
           </button>

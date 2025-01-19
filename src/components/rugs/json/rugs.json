@@ -1,0 +1,44 @@
+[
+  {
+    "carpet_slug": "meadow-mirage",
+    "carpet_name": "Meadow Mirage",
+    "carpet_type": "Traditional",
+    "carpet_code": "4723678-876",
+    "carpet_desc": "This traditional rug showcases a striking medallion design with floral and geometric motifs, set against a rich blue background. The harmonious blend of green, ivory, and pastel pink adds elegance and warmth.",
+    "carpet_sizes": ["1'6 X 1'6"],
+    "carpet_detail": [
+      "100% NewZeeland Wool",
+      "Quality 3/20",
+      "HandKnotted Oushak"
+    ],
+    "carpet_images": [
+      "/assets/home/New Arrival/Meadow Mirage/image_1.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_2.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_3.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_4.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_6.JPG"
+    ]
+  },
+  {
+    "carpet_slug": "",
+    "carpet_name": "Meadow Mirage",
+    "carpet_type": "Traditional",
+    "carpet_code": "4723678-876",
+    "carpet_desc": "This traditional rug showcases a striking medallion design with floral and geometric motifs, set against a rich blue background. The harmonious blend of green, ivory, and pastel pink adds elegance and warmth.",
+    "carpet_sizes": ["1'6 X 1'6"],
+    "carpet_detail": [
+      "100% NewZeeland Wool",
+      "Quality 3/20",
+      "HandKnotted Oushak"
+    ],
+    "carpet_images": [
+      "/assets/home/New Arrival/Meadow Mirage/image_1.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_2.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_3.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_4.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
+      "/assets/home/New Arrival/Meadow Mirage/image_6.JPG"
+    ]
+  }
+]
