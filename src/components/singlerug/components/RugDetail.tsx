@@ -1,6 +1,6 @@
 import React from "react";
 
-function RugDetail({details}:{details: String[]}) {
+function RugDetail({details}:{details: string[]}) {
   
 
   return (

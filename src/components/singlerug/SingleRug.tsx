@@ -1,6 +1,6 @@
 import React from "react";
 import { CustomSection } from "../common/CommonUtility";
-import SelectColor from "./components/SelectColor";
+// import SelectColor from "./components/SelectColor";
 import SelectSize from "./components/SelectSize";
 import RugDetail from "./components/RugDetail";
 import RugImages from "./components/RugImages";

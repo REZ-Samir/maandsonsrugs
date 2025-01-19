@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-function SelectSize({ sizeData }: { sizeData: String[] }) {
+function SelectSize({ sizeData }: { sizeData: string[] }) {
   const [selectSizeIndex, setSelectSizeIndex] = useState<number>(0);
 
   return (
