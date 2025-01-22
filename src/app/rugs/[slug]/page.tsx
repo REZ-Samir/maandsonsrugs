@@ -3,19 +3,18 @@ import { Divider } from "@/components/common/CommonUtility";
 import SimilarRugs from "@/components/singlerug/SimilarRugs";
 import SingleRug from "@/components/singlerug/SingleRug";
 import React from "react";
-import rugsData from "@/components/rugs/json/rugs.json";
 
+async function page({ params }: { params: Promise<{ slug: string }> }) {
+  // Find the rug matching the slug from the params
+  const { slug } = await params;
 
-
-function page({ params }: { params: { slug: string } }) {
-  const singleRug = rugsData.find((rug) => rug.carpet_slug == params.slug);
   return (
     <div>
       <Divider />
       <Divider />
       <BreadCrumb />
       <Divider maxHeight="w-32" />
-      <SingleRug rugData={singleRug}/>
+      <SingleRug slug={slug} />
       <Divider />
       <SimilarRugs />
       <Divider />

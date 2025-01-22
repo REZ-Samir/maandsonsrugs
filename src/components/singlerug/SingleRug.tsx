@@ -4,6 +4,7 @@ import { CustomSection } from "../common/CommonUtility";
 import SelectSize from "./components/SelectSize";
 import RugDetail from "./components/RugDetail";
 import RugImages from "./components/RugImages";
+import rugsData from "@/components/rugs/json/rugs.json";
 
 interface SingleRugData {
   carpet_slug: string;
@@ -16,7 +17,10 @@ interface SingleRugData {
   carpet_images: string[];
 }
 
-function SingleRug({ rugData }: { rugData: SingleRugData | undefined }) {
+function SingleRug({ slug }: { slug: string | undefined }) {
+  const rugData: SingleRugData | undefined = rugsData.find(
+    (rug) => rug.carpet_slug === slug
+  );
   return (
     <CustomSection>
       <div className="grid grid-cols-12 gap-4 relative">
