@@ -4,6 +4,8 @@
     "carpet_name": "Meadow Mirage",
     "carpet_type": "Traditional",
     "carpet_code": "4723678-876",
+    "carpetImg": "/assets/home/New Arrival/Meadow Mirage/image_6.JPG",
+    "hoverImg": "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
     "carpet_desc": "This traditional rug showcases a striking medallion design with floral and geometric motifs, set against a rich blue background. The harmonious blend of green, ivory, and pastel pink adds elegance and warmth.",
     "carpet_sizes": ["1'6 X 1'6"],
     "carpet_detail": [
@@ -21,24 +23,40 @@
     ]
   },
   {
-    "carpet_slug": "",
-    "carpet_name": "Meadow Mirage",
-    "carpet_type": "Traditional",
+    "carpet_slug": "diamond-whisper",
+    "carpet_name": "Diamond Whisper",
+    "carpet_type": "Moroccan",
     "carpet_code": "4723678-876",
-    "carpet_desc": "This traditional rug showcases a striking medallion design with floral and geometric motifs, set against a rich blue background. The harmonious blend of green, ivory, and pastel pink adds elegance and warmth.",
+    "carpetImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
+    "hoverImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
+    "carpet_desc": "Rug blends seamlessly into any décor while adding a touch of sophistication. A perfect centerpiece to elevate your home.",
     "carpet_sizes": ["1'6 X 1'6"],
     "carpet_detail": [
-      "100% NewZeeland Wool",
-      "Quality 3/20",
-      "HandKnotted Oushak"
+      "100% Indian Wool",
+      "Quality 3/8",
+      "HandKnotted",
+      "color white"
+    ],
+    "carpet_images": ["/assets/home/New Arrival/Diamond Whisper/image_1.JPG"]
+  },
+  {
+    "carpet_slug": "golden-heritage",
+    "carpet_name": "Golden Heritage",
+    "carpet_type": "Moroccan",
+    "carpet_code": "4723678-876",
+    "carpetImg": "/assets/home/New Arrival/Golden Heritage/image_1.JPG",
+    "hoverImg": "/assets/home/New Arrival/Golden Heritage/image_2.JPG",
+    "carpet_desc": "The Golden Heritage Rug features intricate vintage-inspired patterns in warm, earthy tones, adding timeless elegance to any room. Crafted for durability and comfort, it’s the perfect blend of style and practicality for your home.",
+    "carpet_sizes": ["1'6 X 1'6"],
+    "carpet_detail": [
+      "100% Indian Wool",
+      "Quality 3/8",
+      "HandKnotted",
+      "color white"
     ],
     "carpet_images": [
-      "/assets/home/New Arrival/Meadow Mirage/image_1.JPG",
-      "/assets/home/New Arrival/Meadow Mirage/image_2.JPG",
-      "/assets/home/New Arrival/Meadow Mirage/image_3.JPG",
-      "/assets/home/New Arrival/Meadow Mirage/image_4.JPG",
-      "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
-      "/assets/home/New Arrival/Meadow Mirage/image_6.JPG"
+      "/assets/home/New Arrival/Golden Heritage/image_1.JPG",
+      "/assets/home/New Arrival/Golden Heritage/image_2.JPG"
     ]
   }
 ]

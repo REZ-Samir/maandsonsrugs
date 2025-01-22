@@ -33,25 +33,25 @@
         "carpetImg": "/assets/home/New Arrival/Meadow Mirage/image_6.JPG",
         "hoverImg": "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
         "carpetName": "Meadow Mirage",
-        "carpetType": "Hand Tufted",
+        "carpetType": "HandKnotted",
         "price": "3585",
         "carpet_slug": "meadow-mirage"
       },
       {
-        "carpetImg": "/assets/home/new_arrival_2.jpg",
-        "hoverImg": "/assets/home/new_arrival_3.jpg",
-        "carpetName": "Midnight Oasis 2",
-        "carpetType": "Hand Tufted",
+        "carpetImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
+        "hoverImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
+        "carpetName": "Diamond Whisper",
+        "carpetType": "HandKnotted",
         "price": "3999",
-        "carpet_slug": ""
+        "carpet_slug": "diamond-whisper"
       },
       {
-        "carpetImg": "/assets/home/new_arrival_3.jpg",
-        "hoverImg": "/assets/home/new_arrival_1.webp",
-        "carpetName": "Oyster",
+        "carpetImg": "/assets/home/New Arrival/Golden Heritage/image_1.JPG",
+        "hoverImg": "/assets/home/New Arrival/Golden Heritage/image_2.JPG",
+        "carpetName": "Golden Heritage",
         "carpetType": "Hand Tufted",
         "price": "4999",
-        "carpet_slug": ""
+        "carpet_slug": "golden-heritage"
       },
       {
         "carpetImg": "/assets/home/new_arrival_1.webp",
