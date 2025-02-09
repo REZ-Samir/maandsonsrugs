@@ -3,7 +3,7 @@
     "carpet_slug": "meadow-mirage",
     "carpet_name": "Meadow Mirage",
     "carpet_type": "Traditional",
-    "carpet_code": "4723678-876",
+    "carpet_code": "4723678-874",
     "carpetImg": "/assets/home/New Arrival/Meadow Mirage/image_6.JPG",
     "hoverImg": "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
     "carpet_desc": "This traditional rug showcases a striking medallion design with floral and geometric motifs, set against a rich blue background. The harmonious blend of green, ivory, and pastel pink adds elegance and warmth.",
@@ -26,7 +26,7 @@
     "carpet_slug": "diamond-whisper",
     "carpet_name": "Diamond Whisper",
     "carpet_type": "Moroccan",
-    "carpet_code": "4723678-876",
+    "carpet_code": "4723678-875",
     "carpetImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
     "hoverImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
     "carpet_desc": "Rug blends seamlessly into any décor while adding a touch of sophistication. A perfect centerpiece to elevate your home.",
@@ -57,6 +57,53 @@
     "carpet_images": [
       "/assets/home/New Arrival/Golden Heritage/image_1.JPG",
       "/assets/home/New Arrival/Golden Heritage/image_2.JPG"
+    ]
+  },
+  {
+    "carpet_slug": "fern-grid-elegance",
+    "carpet_name": "Fern Grid Elegance",
+    "carpet_type": "Moroccan",
+    "carpet_code": "4723678-879",
+    "carpetImg": "/assets/rugs/fern-grid-elegance/image_1.JPG",
+    "hoverImg": "/assets/rugs/fern-grid-elegance/image_3.JPG",
+    "carpet_desc": "The Fern Grid Elegance Carpet brings timeless charm to your home with its delicate fern-inspired pattern in soft blue and beige tones. Handwoven from high-quality materials, it offers durability, comfort, and a touch of artisanal craftsmanship with its fringed edges. Perfect for any decor style, this versatile carpet enhances both modern and classic interiors. Add warmth and sophistication to your space with this elegant design.",
+    "carpet_sizes": ["1'6 X 1'6"],
+    "carpet_detail": [
+      "100% Indian Wool",
+      "Quality 3/8",
+      "HandKnotted",
+      "color white"
+    ],
+    "carpet_images": [
+      "/assets/rugs/fern-grid-elegance/image_1.JPG",
+      "/assets/rugs/fern-grid-elegance/image_2.JPG",
+      "/assets/rugs/fern-grid-elegance/image_3.JPG",
+      "/assets/rugs/fern-grid-elegance/image_4.JPG"
+    ]
+  },
+  {
+    "carpet_slug": "crimson-fern-elegance",
+    "carpet_name": "Crimson Fern Elegance",
+    "carpet_type": "Moroccan",
+    "carpet_code": "4723678-880",
+    "carpetImg": "/assets/rugs/crimson-fern-elegance/image_5.JPG",
+    "hoverImg": "/assets/rugs/crimson-fern-elegance/image_7.JPG",
+    "carpet_desc": "Add a bold statement to your home with the Crimson Fern Elegance Carpet, featuring a striking fern-inspired grid pattern in rich crimson red on a neutral beige base. This handwoven masterpiece combines durability and comfort, making it perfect for any room. Its vibrant design adds warmth and character to both modern and traditional interiors, creating a captivating focal point in your space.",
+    "carpet_sizes": ["1'6 X 1'6"],
+    "carpet_detail": [
+      "100% Indian Wool",
+      "Quality 3/8",
+      "HandKnotted",
+      "color white"
+    ],
+    "carpet_images": [
+      "/assets/rugs/crimson-fern-elegance/image_1.JPG",
+      "/assets/rugs/crimson-fern-elegance/image_2.JPG",
+      "/assets/rugs/crimson-fern-elegance/image_3.JPG",
+      "/assets/rugs/crimson-fern-elegance/image_4.JPG",
+      "/assets/rugs/crimson-fern-elegance/image_5.JPG",
+      "/assets/rugs/crimson-fern-elegance/image_6.JPG",
+      "/assets/rugs/crimson-fern-elegance/image_7.JPG"
     ]
   }
 ]

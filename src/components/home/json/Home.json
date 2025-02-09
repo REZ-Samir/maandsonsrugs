@@ -5,24 +5,28 @@
     "bgImage": "/assets/home/hero-bg.png",
     "heroHighlight": [
       {
-        "carpetImg": "/assets/home/new_arrival_1.webp",
-        "carpetName": "Midnight Oasis",
-        "carpetType": "Hand Tufted"
+        "carpetImg": "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
+        "carpetName": "Meadow Mirage",
+        "carpetType": "Hand Tufted",
+        "carpet_slug": "meadow-mirage"
       },
       {
-        "carpetImg": "/assets/home/new_arrival_2.jpg",
-        "carpetName": "Ariyal",
-        "carpetType": "Hand Tufted"
+        "carpetImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
+        "carpetName": "Diamond Whisper",
+        "carpetType": "Hand Tufted",
+        "carpet_slug": "diamond-whisper"
       },
       {
-        "carpetImg": "/assets/home/new_arrival_3.jpg",
-        "carpetName": "Oyster",
-        "carpetType": "Hand Tufted"
+        "carpetImg": "/assets/rugs/crimson-fern-elegance/image_7.JPG",
+        "carpetName": "Crimson Fern Elegance",
+        "carpetType": "Hand Tufted",
+        "carpet_slug": "crimson-fern-elegance"
       },
       {
-        "carpetImg": "/assets/home/new_arrival_1.webp",
-        "carpetName": "Midnight Oasis 4",
-        "carpetType": "Hand Tufted"
+        "carpetImg": "/assets/rugs/fern-grid-elegance/image_3.JPG",
+        "carpetName": "Fern Grid Elegance",
+        "carpetType": "Hand Tufted",
+        "carpet_slug": "fern-grid-elegance"
       }
     ]
   },
@@ -54,12 +58,20 @@
         "carpet_slug": "golden-heritage"
       },
       {
-        "carpetImg": "/assets/home/new_arrival_1.webp",
-        "hoverImg": "/assets/home/new_arrival_2.jpg",
-        "carpetName": "Midnight Oasis 4",
+        "carpetImg": "/assets/rugs/fern-grid-elegance/image_1.JPG",
+        "hoverImg": "/assets/rugs/fern-grid-elegance/image_3.JPG",
+        "carpetName": "Fern Grid Elegance",
         "carpetType": "Hand Tufted",
         "price": "48000",
-        "carpet_slug": ""
+        "carpet_slug": "fern-grid-elegance"
+      },
+      {
+        "carpetImg": "/assets/rugs/crimson-fern-elegance/image_5.JPG",
+        "hoverImg": "/assets/rugs/crimson-fern-elegance/image_7.JPG",
+        "carpetName": "Crimson Fern Elegance",
+        "carpetType": "Hand Tufted",
+        "price": "48000",
+        "carpet_slug": "crimson-fern-elegance"
       }
     ]
   },

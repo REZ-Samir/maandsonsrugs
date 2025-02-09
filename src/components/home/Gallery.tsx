@@ -15,7 +15,7 @@ function Gallery() {
         <div className="row-span-2 lg:row-span-3 col-span-4 lg:col-span-3 ">
           <Image
             alt=""
-            src={"/assets/home/gallery_img_1.avif"}
+            src={"/assets/home/New Arrival/Meadow Mirage/image_6.JPG"}
             width={500}
             height={500}
             className="w-full h-full"
@@ -25,7 +25,7 @@ function Gallery() {
         <div className="col-span-2 lg:col-span-1 ">
           <Image
             alt=""
-            src={"/assets/home/gallery_img_2.avif"}
+            src={"/assets/home/New Arrival/Diamond Whisper/image_1.JPG"}
             width={500}
             height={500}
             className="w-full h-full"
@@ -35,7 +35,7 @@ function Gallery() {
         <div className="col-span-2 lg:col-span-1 bg-red-200  lg:row-start-2 lg:col-start-4">
           <Image
             alt=""
-            src={"/assets/home/gallery_img_2.avif"}
+            src={"/assets/home/New Arrival/Golden Heritage/image_2.JPG"}
             width={500}
             height={500}
             className="w-full h-full"
@@ -45,7 +45,7 @@ function Gallery() {
         <div className="col-span-2  row-span-1 lg:row-span-2 bg-red-400">
           <Image
             alt=""
-            src={"/assets/home/gallery_img_1.avif"}
+            src={"/assets/rugs/fern-grid-elegance/image_3.JPG"}
             width={500}
             height={500}
             className="w-full h-full"
@@ -65,7 +65,7 @@ function Gallery() {
         <div className="col-span-2 lg:col-span-1 bg-red-600">
           <Image
             alt=""
-            src={"/assets/home/gallery_img_1.avif"}
+            src={"/assets/rugs/crimson-fern-elegance/image_5.JPG"}
             width={500}
             height={500}
             className="w-full h-full"

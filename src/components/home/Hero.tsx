@@ -11,6 +11,7 @@ interface HeroInterface {
     carpetImg?: string;
     carpetName: string;
     carpetType: string;
+    carpet_slug: string;
   }[];
 }
 
@@ -31,7 +32,7 @@ function Hero() {
         <h4 className="home-hero-subtitle">{heroData.subtitle}</h4>
         <div className="homer-hero-hover-card-wrapper">
           {heroData.heroHighlight.map((data, index) => (
-            <Link key={index} href={"/rugs/one"}>
+            <Link key={index} href={`/rugs/${data.carpet_slug}`}>
               <div className="group home-hero-hover-card">
                 <Image
                   src={data.carpetImg ?? ""}
