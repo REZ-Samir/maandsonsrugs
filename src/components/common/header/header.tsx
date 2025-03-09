@@ -42,7 +42,7 @@ function Header() {
           </ul>
         </nav>
         <div>
-          <Link href={"/comingsoon"} className="hidden md:block bg-black px-12 py-3 rounded-full text-white">
+          <Link href={"/customrug"} className="hidden md:block bg-black px-12 py-3 rounded-full text-white">
             Custom Rug
           </Link>
           <button className="block md:hidden">
