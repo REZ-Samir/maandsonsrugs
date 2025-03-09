@@ -1,9 +1,7 @@
 import BreadCrumb from "@/components/common/breadcrumb/BreadCrumb";
-import { CustomSection, Divider } from "@/components/common/CommonUtility";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import RugsListing from "@/components/rugs/RugsListing";
+import { Divider } from "@/components/common/CommonUtility";
 
 function page() {
   return (
@@ -13,7 +11,9 @@ function page() {
       <BreadCrumb />
       <Divider></Divider>
 
-      <RugsListing></RugsListing>
+      <Suspense fallback={<div>Loading Rugs...</div>}>
+        <RugsListing />
+      </Suspense>
       <Divider></Divider>
     </div>
   );

@@ -20,7 +20,11 @@
       "/assets/home/New Arrival/Meadow Mirage/image_4.JPG",
       "/assets/home/New Arrival/Meadow Mirage/image_5.JPG",
       "/assets/home/New Arrival/Meadow Mirage/image_6.JPG"
-    ]
+    ],
+    "color": ["Blue", "Green", "Ivory", "Pastel Pink"],
+    "size": ["Small"],
+    "material": ["Wool"],
+    "quality": "Premium"
   },
   {
     "carpet_slug": "diamond-whisper",
@@ -31,13 +35,12 @@
     "hoverImg": "/assets/home/New Arrival/Diamond Whisper/image_1.JPG",
     "carpet_desc": "Rug blends seamlessly into any décor while adding a touch of sophistication. A perfect centerpiece to elevate your home.",
     "carpet_sizes": ["1'6 X 1'6"],
-    "carpet_detail": [
-      "100% Indian Wool",
-      "Quality 3/8",
-      "HandKnotted",
-      "color white"
-    ],
-    "carpet_images": ["/assets/home/New Arrival/Diamond Whisper/image_1.JPG"]
+    "carpet_detail": ["100% Indian Wool", "Quality 3/8", "HandKnotted"],
+    "carpet_images": ["/assets/home/New Arrival/Diamond Whisper/image_1.JPG"],
+    "color": ["White"],
+    "size": ["Small"],
+    "material": ["Wool"],
+    "quality": "Standard"
   },
   {
     "carpet_slug": "golden-heritage",
@@ -48,16 +51,15 @@
     "hoverImg": "/assets/home/New Arrival/Golden Heritage/image_2.JPG",
     "carpet_desc": "The Golden Heritage Rug features intricate vintage-inspired patterns in warm, earthy tones, adding timeless elegance to any room. Crafted for durability and comfort, it’s the perfect blend of style and practicality for your home.",
     "carpet_sizes": ["1'6 X 1'6"],
-    "carpet_detail": [
-      "100% Indian Wool",
-      "Quality 3/8",
-      "HandKnotted",
-      "color white"
-    ],
+    "carpet_detail": ["100% Indian Wool", "Quality 3/8", "HandKnotted"],
     "carpet_images": [
       "/assets/home/New Arrival/Golden Heritage/image_1.JPG",
       "/assets/home/New Arrival/Golden Heritage/image_2.JPG"
-    ]
+    ],
+    "color": ["Beige", "Gold"],
+    "size": ["Small"],
+    "material": ["Wool"],
+    "quality": "Standard"
   },
   {
     "carpet_slug": "fern-grid-elegance",
@@ -68,18 +70,17 @@
     "hoverImg": "/assets/rugs/fern-grid-elegance/image_3.JPG",
     "carpet_desc": "The Fern Grid Elegance Carpet brings timeless charm to your home with its delicate fern-inspired pattern in soft blue and beige tones. Handwoven from high-quality materials, it offers durability, comfort, and a touch of artisanal craftsmanship with its fringed edges. Perfect for any decor style, this versatile carpet enhances both modern and classic interiors. Add warmth and sophistication to your space with this elegant design.",
     "carpet_sizes": ["1'6 X 1'6"],
-    "carpet_detail": [
-      "100% Indian Wool",
-      "Quality 3/8",
-      "HandKnotted",
-      "color white"
-    ],
+    "carpet_detail": ["100% Indian Wool", "Quality 3/8", "HandKnotted"],
     "carpet_images": [
       "/assets/rugs/fern-grid-elegance/image_1.JPG",
       "/assets/rugs/fern-grid-elegance/image_2.JPG",
       "/assets/rugs/fern-grid-elegance/image_3.JPG",
       "/assets/rugs/fern-grid-elegance/image_4.JPG"
-    ]
+    ],
+    "color": ["Blue", "Beige"],
+    "size": ["Small"],
+    "material": ["Wool"],
+    "quality": "Premium"
   },
   {
     "carpet_slug": "crimson-fern-elegance",
@@ -90,12 +91,7 @@
     "hoverImg": "/assets/rugs/crimson-fern-elegance/image_7.JPG",
     "carpet_desc": "Add a bold statement to your home with the Crimson Fern Elegance Carpet, featuring a striking fern-inspired grid pattern in rich crimson red on a neutral beige base. This handwoven masterpiece combines durability and comfort, making it perfect for any room. Its vibrant design adds warmth and character to both modern and traditional interiors, creating a captivating focal point in your space.",
     "carpet_sizes": ["1'6 X 1'6"],
-    "carpet_detail": [
-      "100% Indian Wool",
-      "Quality 3/8",
-      "HandKnotted",
-      "color white"
-    ],
+    "carpet_detail": ["100% Indian Wool", "Quality 3/8", "HandKnotted"],
     "carpet_images": [
       "/assets/rugs/crimson-fern-elegance/image_1.JPG",
       "/assets/rugs/crimson-fern-elegance/image_2.JPG",
@@ -104,6 +100,10 @@
       "/assets/rugs/crimson-fern-elegance/image_5.JPG",
       "/assets/rugs/crimson-fern-elegance/image_6.JPG",
       "/assets/rugs/crimson-fern-elegance/image_7.JPG"
-    ]
+    ],
+    "color": ["Crimson Red", "Beige"],
+    "size": ["Small"],
+    "material": ["Wool"],
+    "quality": "Premium"
   }
 ]

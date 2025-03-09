@@ -2,26 +2,31 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-const CanvasEditor = dynamic(() => import("./CanvasEditor"), { ssr: false });
 
 const colorOptions = ["Red", "Blue", "Green"];
 const sizeOptions = ["Small", "Medium", "Large"];
 const materialOptions = ["Wool", "Cotton", "Silk"];
+
+interface RugFormData {
+  color: string;
+  size: string;
+  material: string;
+  name: string;
+  description: string;
+  image?: FileList; // Image input may return FileList
+}
 
 const CustomRug = () => {
   const {
     register,
     handleSubmit,
     watch,
-    setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm<RugFormData>();
 
   const image = watch("image");
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: RugFormData) => {
     console.log("Form submitted", data);
   };
 
@@ -121,7 +126,7 @@ const CustomRug = () => {
             type="file"
             accept="image/*"
             {...register("image", {
-              required:  "Image is required",
+              required: "Image is required",
             })}
             className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
           />
