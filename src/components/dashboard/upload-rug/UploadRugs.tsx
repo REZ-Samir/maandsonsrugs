@@ -5,8 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Upload } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
+import { FieldValues, set, SubmitHandler, useForm } from "react-hook-form";
 
 function UploadRugs() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setError,
+    clearErrors,
+    formState: { errors },
+  } = useForm();
+
   const [previewImageUrls, setPreviewImageUrls] = useState<string[]>([]);
   const [dragging, setDragging] = useState(false);
   const rugsSize = ["Small", "Medium", "Large", "ExtraLarge"];
@@ -33,15 +43,22 @@ function UploadRugs() {
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = {
+  const handleFormSubmit: SubmitHandler<FieldValues> = (data) => {
+    if (selectedRugSize.length === 0) {
+      setError("multiSelect", {
+        type: "manual",
+        message: "This field is required!",
+      });
+      return;
+    }
+    const finalData = {
+      ...data,
       selectedRugSize,
       color,
       material,
       quality,
     };
-    console.log(formData);
+    console.log(finalData);
   };
 
   return (
@@ -49,33 +66,46 @@ function UploadRugs() {
       <div className="text-center max-w-2xl mx-auto">
         <h2 className="text-2xl font-bold">What is your new rug?</h2>
         <p>
-          Upload your media. The first image will be used as a thumbnail. Drag and drop up to 3 images to create a multi-shot.
+          Upload your media. The first image will be used as a thumbnail. Drag
+          and drop up to 3 images to create a multi-shot.
         </p>
       </div>
       <Divider />
-      <form className="flex flex-col gap-5" onSubmit={handleFormSubmit}>
+      <form
+        className="flex flex-col gap-5"
+        onSubmit={handleSubmit(handleFormSubmit)}
+      >
         <input
           type="text"
           placeholder="Rug Title"
           className="w-full bg-gray-100 px-4 py-3 rounded-md"
+          {...register("rugTitle", { required: true })}
         />
+        {errors.rugTitle && (
+          <span className="text-red-500">This field is required*</span>
+        )}
         <textarea
-          name="Rug Description"
           placeholder="Rug Description"
           className="bg-gray-100 px-4 py-2 rounded-md"
+          {...register("rugDescription", { required: true })}
         ></textarea>
+        {errors.rugDescription && (
+          <span className="text-red-500">This field is required*</span>
+        )}
+
         <input
           type="file"
           accept="image/*"
           className="hidden"
           id="file-upload"
           onChange={handleFileChange}
+          // {...register("rugImages", { required: true })}
         />
         <label
           htmlFor="file-upload"
           className={`flex flex-col items-center justify-center p-6 border rounded-lg shadow-sm bg-white h-[600px] w-full mx-auto cursor-pointer ${
             dragging ? "border-blue-500" : "border-gray-300"
-          }`}
+          } `}
           onDragOver={(e) => {
             e.preventDefault();
             setDragging(true);
@@ -87,13 +117,17 @@ function UploadRugs() {
             <Upload className="w-10 h-10 text-gray-600 mb-4 mx-auto" />
             <h2 className="text-lg font-semibold">Upload Media</h2>
             <p className="text-sm text-gray-500 text-center mt-1 mb-4">
-              Drag & Drop files here or click below to upload. <br /> Photos must be less than <span className="font-bold">2 MB</span> in size.
+              Drag & Drop files here or click below to upload. <br /> Photos
+              must be less than <span className="font-bold">2 MB</span> in size.
             </p>
             <div className="bg-black text-white hover:bg-gray-800 py-2 rounded-md">
               Upload
             </div>
           </div>
         </label>
+        {errors.rugImages && (
+          <span className="text-red-500">This field is required*</span>
+        )}
         <div className="flex gap-4 overflow-auto">
           {previewImageUrls?.map((file, index) => (
             <Image
@@ -107,22 +141,41 @@ function UploadRugs() {
           ))}
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Type"
-            className="w-full bg-gray-100 px-4 py-3 rounded-md"
-          />
-          <input
-            type="text"
-            placeholder="Code"
-            className="w-full bg-gray-100 px-4 py-3 rounded-md"
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Rug Type"
+              className="w-full bg-gray-100 px-4 py-3 rounded-md"
+              {...register("rugType", { required: true })}
+            />
+            {errors.rugType && (
+              <span className="text-red-500 ">This field is required*</span>
+            )}
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Rug Code"
+              className="w-full bg-gray-100 px-4 py-3 rounded-md"
+              {...register("rugCode", { required: true })}
+            />
+            {errors.rugCode && (
+              <span className="text-red-500">This field is required*</span>
+            )}
+          </div>
           <MultiSelectDropdown
             options={rugsSize}
             selectedOptions={selectedRugSize}
-            onChange={setSelectedRugSize}
+            onChange={(selected) => {
+              setSelectedRugSize(selected);
+              if (selected.length > 0) {
+                clearErrors("multiSelect"); // Clear error when at least one is selected
+              }
+            }}
             placeholder="Choose Rug Sizes"
+            error={errors.multiSelect?.message as string}
           />
+
           <MultiColorInput
             placeholder="Type a color name & press Enter"
             data={color}

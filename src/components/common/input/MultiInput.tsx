@@ -35,7 +35,7 @@ const MultiColorInput = ({
   };
 
   return (
-    <div className="border border-gray-300 rounded-md p-2 bg-gray-100">
+    <div className=" rounded-md p-2 bg-gray-100">
       {/* Display Selected Colors */}
       <div className="flex overflow-auto items-center gap-2">
         {data.map((color) => (

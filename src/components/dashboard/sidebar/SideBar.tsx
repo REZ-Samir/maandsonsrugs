@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
-import { Home, Package, Upload, LogOut } from "lucide-react";
+import { Home, Package, Upload, LogOut, Menu, X } from "lucide-react";
 import UploadRugs from "../upload-rug/UploadRugs";
 
 const Sidebar = () => {
   const [active, setActive] = useState("home");
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const menuItems = [
     { name: "Home", icon: <Home size={20} />, key: "home" },
@@ -25,7 +26,32 @@ const Sidebar = () => {
 
   return (
     <div className="flex">
-      <div className="h-screen w-64 flex flex-col p-5 space-y-4 border border-r">
+      {/* Mobile Menu Button (Hidden when sidebar is open) */}
+      {!isSidebarOpen && (
+        <button
+          className="md:hidden fixed top-4 left-4 z-50 bg-primary text-white p-2 rounded-full shadow-lg"
+          onClick={() => setSidebarOpen(true)}
+        >
+          <Menu size={24} />
+        </button>
+      )}
+
+      {/* Sidebar */}
+      <div
+        className={`fixed md:relative h-screen w-64 bg-white p-5 space-y-4 border-r transition-transform transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-64"
+        } md:translate-x-0 md:block`}
+      >
+        {/* Close Button (Visible only on mobile when sidebar is open) */}
+        {isSidebarOpen && (
+          <button
+            className="md:hidden  bg-gray-200 p-2 rounded-full"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <X size={24} />
+          </button>
+        )}
+
         <h2 className="text-xl font-bold">MA&SONS RUGS</h2>
         <nav className="flex-1">
           <ul className="space-y-2">
@@ -37,7 +63,10 @@ const Sidebar = () => {
                       ? "bg-primary text-white"
                       : "hover:border hover:border-gray-700"
                   }`}
-                  onClick={() => setActive(item.key)}
+                  onClick={() => {
+                    setActive(item.key);
+                    setSidebarOpen(false); // Close sidebar on mobile after clicking
+                  }}
                 >
                   {item.icon}
                   <span>{item.name}</span>
@@ -46,16 +75,14 @@ const Sidebar = () => {
             ))}
           </ul>
         </nav>
-        <button className="flex items-center space-x-3 p-3 rounded-l">
+        <button className="flex items-center space-x-3 p-3 rounded-lg">
           <LogOut size={20} />
           <span>Logout</span>
         </button>
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 p-6  h-screen overflow-auto">
-        {renderContent()}
-      </div>
+      <div className="flex-1 p-1 md:p-6  mt-16 md:m-0 h-screen overflow-auto">{renderContent()}</div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ interface MultiSelectDropdownProps {
   selectedOptions: string[];
   onChange: (selected: string[]) => void;
   placeholder?: string;
+  error? : string
 }
 
 const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
@@ -14,6 +15,7 @@ const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
   selectedOptions,
   onChange,
   placeholder = "Select options",
+  error,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -35,7 +37,10 @@ const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -47,12 +52,15 @@ const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
     <div className="relative " ref={dropdownRef}>
       {/* Input box with selected tags */}
       <div
-        className="w-full p-2 py-3 border border-gray-300 rounded-md bg-gray-100 flex overflow-auto  gap-2 cursor-pointer"
+        className="w-full p-2 py-3 rounded-md bg-gray-100 flex overflow-auto  gap-2 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         {selectedOptions.length > 0 ? (
           selectedOptions.map((option) => (
-            <span key={option} className="px-2 py-1 bg-gray-200 rounded-md flex items-center">
+            <span
+              key={option}
+              className="px-2 py-1 bg-gray-200 rounded-md flex items-center"
+            >
               {option}
               <button
                 onClick={(e) => {
@@ -69,12 +77,16 @@ const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
           <span className="text-gray-400">{placeholder}</span>
         )}
       </div>
+      {error && <span className="text-red-500">{error}</span>}
 
       {/* Dropdown List */}
       {isOpen && (
         <div className="absolute mt-1 w-full bg-white border border-gray-300 rounded-md shadow-md p-2 z-10">
           {options.map((option) => (
-            <label key={option} className="flex items-center space-x-2 cursor-pointer p-1">
+            <label
+              key={option}
+              className="flex items-center space-x-2 cursor-pointer p-1"
+            >
               <input
                 type="checkbox"
                 checked={selectedOptions.includes(option)}
