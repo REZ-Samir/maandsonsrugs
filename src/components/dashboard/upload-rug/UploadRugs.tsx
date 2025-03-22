@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Upload } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
-import { FieldValues, set, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 function UploadRugs() {
   const {
     register,
     handleSubmit,
-    watch,
     setError,
     clearErrors,
     formState: { errors },

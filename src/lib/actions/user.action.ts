@@ -1,4 +1,3 @@
-import { revalidatePath } from "next/cache";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 import bcrypt from "bcryptjs";
@@ -12,7 +11,7 @@ interface userParams {
     path: string
 }
 
-export async function createUser({ name, email, password, confirmPassword, path }: userParams) {
+export async function createUser({ name, email, password, confirmPassword }: userParams) {
     try {
         connectToDB();
 
@@ -36,13 +35,19 @@ export async function createUser({ name, email, password, confirmPassword, path 
             password: hashedPassword,
         });
 
-        revalidatePath(path)
-    } catch (error: any) {
-        throw new Error(`Failed to create a new user ${error.message}`);
+        // revalidatePath(path)
+
+        return { message: "User created successfully", user: createUser };
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Failed to create a new user ${error.message}`);
+        }
+        throw new Error("Failed to create a new user due to an unknown error");
+
     }
 }
 
-export async function loginUser({ email, password, path }: userParams) {
+export async function loginUser({ email, password }: userParams) {
     try {
         connectToDB();
 
@@ -61,7 +66,10 @@ export async function loginUser({ email, password, path }: userParams) {
 
         return { message: "Login successful", user: loginUser };
 
-    } catch (error: any) {
-        throw new Error(`Failed to login user : ${error.message}`);
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Failed to login user : ${error.message}`);
+        }
+        throw new Error("Failed to login user due to an unknown error");
     }
 }
