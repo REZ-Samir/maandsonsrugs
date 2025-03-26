@@ -2,7 +2,9 @@ import { Divider } from "@/components/common/CommonUtility";
 import MultiSelectDropdown from "@/components/common/dropdown/MultiSelectDropDown";
 import MultiColorInput from "@/components/common/input/MultiInput";
 import { Button } from "@/components/ui/button";
+import { createRug, rugParams } from "@/lib/actions/rug.action";
 import { Upload } from "lucide-react";
+import { PartialStaticPathsResult } from "next/dist/build/utils";
 import Image from "next/image";
 import React, { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -42,7 +44,7 @@ function UploadRugs() {
     }
   };
 
-  const handleFormSubmit: SubmitHandler<FieldValues> = (data) => {
+  const handleFormSubmit: SubmitHandler<FieldValues> = async (data) => {
     if (selectedRugSize.length === 0) {
       setError("multiSelect", {
         type: "manual",
@@ -56,8 +58,24 @@ function UploadRugs() {
       color,
       material,
       quality,
+      previewImageUrls,
     };
     console.log(finalData);
+
+    const rugData: Partial<rugParams> = {
+      rugName: data.rugTitle,
+      rugDescription: data.rugDescription,
+      rugImg: previewImageUrls,
+      rugPrice: 10,
+      rugCode: data.rugCode,
+      rugSizes: selectedRugSize,
+      rugColors: color,
+      rugQuality: quality,
+      token: localStorage.getItem("token") as string,
+    };
+
+    await createRug(rugData);
+
   };
 
   return (

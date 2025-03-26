@@ -1,11 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Home, Package, Upload, LogOut, Menu, X } from "lucide-react";
-import UploadRugs from "../upload-rug/UploadRugs";
+import UploadRugs from "./upload-rug/UploadRugs";
+import { useRouter } from "next/navigation";
 
-const Sidebar = () => {
+const Dashboard = () => {
   const [active, setActive] = useState("home");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
 
   const menuItems = [
     { name: "Home", icon: <Home size={20} />, key: "home" },
@@ -23,6 +25,13 @@ const Sidebar = () => {
         return <h2 className="text-2xl font-bold">Welcome to Rug Dashboard</h2>;
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/sign-in");
+    }
+  }, []);
 
   return (
     <div className="flex">
@@ -75,16 +84,21 @@ const Sidebar = () => {
             ))}
           </ul>
         </nav>
-        <button className="flex items-center space-x-3 p-3 rounded-lg">
+        <button
+          className="flex items-center space-x-3 p-3 rounded-lg"
+          onClick={() => localStorage.removeItem("token")}
+        >
           <LogOut size={20} />
           <span>Logout</span>
         </button>
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 p-1 md:p-6  mt-16 md:m-0 h-screen overflow-auto">{renderContent()}</div>
+      <div className="flex-1 p-1 md:p-6  mt-16 md:m-0 h-screen overflow-auto">
+        {renderContent()}
+      </div>
     </div>
   );
 };
 
-export default Sidebar;
+export default Dashboard;

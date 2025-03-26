@@ -1,8 +1,8 @@
-import Sidebar from "@/components/dashboard/sidebar/SideBar";
-import React from "react";
+import Dashboard from "@/components/dashboard/Dashboard";
+import Sidebar from "@/components/dashboard/Dashboard";
 
 function page() {
-  return <Sidebar />;
+  return <Dashboard />;
 }
 
 export default page;

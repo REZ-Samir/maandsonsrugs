@@ -1,6 +1,9 @@
+"use server"
+
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 
 interface userParams {
@@ -11,9 +14,19 @@ interface userParams {
     path: string
 }
 
-export async function createUser({ name, email, password, confirmPassword }: userParams) {
+const JWT_SECRET ="jygjyftdhjgbjyfvgufgrhgdhc"
+
+function generateToken(userId: string) {
+    return jwt.sign({ userId }, JWT_SECRET, { expiresIn: "7d" });
+}
+
+export async function createUser({ name, email, password, confirmPassword }: Partial<userParams>) {
     try {
         connectToDB();
+
+        if (password == null) {
+            throw new Error("Password is required");
+        }
 
         if (password !== confirmPassword) {
             throw new Error("Password does not match");
@@ -26,7 +39,7 @@ export async function createUser({ name, email, password, confirmPassword }: use
 
         const salt = await bcrypt.genSalt(10);
 
-        const hashedPassword = await bcrypt.hash(password, salt);
+        const hashedPassword = await bcrypt.hash(password!, salt);
 
 
         const createUser = await User.create({
@@ -34,10 +47,10 @@ export async function createUser({ name, email, password, confirmPassword }: use
             email: email,
             password: hashedPassword,
         });
-
+        const token = generateToken(createUser._id.toString());
         // revalidatePath(path)
 
-        return { message: "User created successfully", user: createUser };
+        return { message: "User created successfully", user: createUser.toObject(), token };
     } catch (error) {
         if (error instanceof Error) {
             throw new Error(`Failed to create a new user ${error.message}`);
@@ -47,9 +60,13 @@ export async function createUser({ name, email, password, confirmPassword }: use
     }
 }
 
-export async function loginUser({ email, password }: userParams) {
+export async function loginUser({ email, password }: Partial<userParams>) {
     try {
         connectToDB();
+
+        if (password == null) {
+            throw new Error("Password is required");
+        }
 
         const loginUser = await User.findOne({ email: email });
 
@@ -58,18 +75,29 @@ export async function loginUser({ email, password }: userParams) {
 
         }
 
-        const isPasswordMatch = await bcrypt.compare(password, loginUser.password);
+        const isPasswordMatch = await bcrypt.compare(password!, loginUser.password);
 
         if (!isPasswordMatch) {
             throw new Error("Invalid credentials");
         }
 
-        return { message: "Login successful", user: loginUser };
+        const token = generateToken(loginUser._id.toString());
+
+        return { message: "Login successful", user: loginUser.toObject(), token };
 
     } catch (error) {
         if (error instanceof Error) {
             throw new Error(`Failed to login user : ${error.message}`);
         }
         throw new Error("Failed to login user due to an unknown error");
+    }
+}
+
+export async function verifyToken(token: string)  {
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        return decoded;
+    } catch (error) {
+        throw new Error("Invalid or expired token");
     }
 }

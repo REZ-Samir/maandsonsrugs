@@ -37,6 +37,7 @@ const rugSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    
 })
 
 const Rug = mongoose.models.Rug || mongoose.model("Rug", rugSchema);

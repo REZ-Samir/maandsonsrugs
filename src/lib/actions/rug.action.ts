@@ -1,8 +1,11 @@
-import { revalidatePath } from "next/cache";
+"use server"
+
 import Rug from "../models/rug.model";
 import { connectToDB } from "../mongoose";
+import { verifyToken } from "./user.action";
+import cloudinary from "cloudinary";
 
-interface rugParams {
+export interface rugParams {
     rugName: string;
     rugPrice: number;
     rugImg: string[];
@@ -11,24 +14,45 @@ interface rugParams {
     rugSizes: string[];
     rugColors: string[];
     path: string;
+    rugQuality: string;
+    token: string;
 }
 
-export async function createRug({ rugName, rugPrice, rugImg, rugDescription, rugCode, rugSizes, rugColors, path }: rugParams) {
+
+cloudinary.v2.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+export async function createRug({ rugName, rugPrice, rugImg, rugDescription, rugCode, rugSizes, rugColors, token, rugQuality }: Partial<rugParams>) {
     try {
         connectToDB();
+        if (!token) {
+            throw new Error("Token is required");
+        }
+        verifyToken(token)
 
-        if (!rugName || !rugPrice || !rugImg || !rugDescription || !rugCode || !rugSizes || !rugColors) {
+
+        if (!rugName || !rugPrice || !rugImg || !rugDescription || !rugCode || !rugSizes || !rugColors || !rugQuality) {
             throw new Error("All fields are required");
         }
 
-        const createRug = await Rug.create({ rugName: rugName, rugPrice: rugPrice, rugImg: rugImg, rugDescription: rugDescription, rugCode: rugCode, rugSizes: rugSizes, rugColors: rugColors });
+        const uploadedImages = await Promise.all(
+            rugImg.map(async (img) => {
+                const uploadResponse = await cloudinary.v2.uploader.upload(img, { folder: "rugs" });
+                return uploadResponse.secure_url; // Store only the secure URL
+            })
+        );
+
+        console.log("dfdgdfgdfsg",uploadedImages);
+
+        const createRug = await Rug.create({ rugName: rugName, rugPrice: rugPrice, rugImg: uploadedImages, rugDescription: rugDescription, rugCode: rugCode, rugSizes: rugSizes, rugColors: rugColors, rugQuality: rugQuality });
 
         if (!createRug) {
             throw new Error("Failed to create a new rug");
         }
 
-        // Revalidate cache if path is provided
-        if (path) revalidatePath(path);
 
         return { message: "Rug created successfully", rug: createRug };
 
