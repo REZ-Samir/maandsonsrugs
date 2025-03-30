@@ -4,7 +4,6 @@ import MultiColorInput from "@/components/common/input/MultiInput";
 import { Button } from "@/components/ui/button";
 import { createRug, rugParams } from "@/lib/actions/rug.action";
 import { Upload } from "lucide-react";
-import { PartialStaticPathsResult } from "next/dist/build/utils";
 import Image from "next/image";
 import React, { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -15,6 +14,7 @@ function UploadRugs() {
     handleSubmit,
     setError,
     clearErrors,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -26,12 +26,28 @@ function UploadRugs() {
   const [material, setMaterial] = useState<string[]>([]);
   const [quality, setQuality] = useState<string>("Low");
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     if (!event.target.files) return;
 
     const files = Array.from(event.target.files);
-    const imageUrls = files.map((file) => URL.createObjectURL(file));
-    setPreviewImageUrls(imageUrls);
+
+    // Convert files to Base64
+    const base64Images = await Promise.all(
+      files.map((file) => convertFileToBase64(file))
+    );
+
+    setPreviewImageUrls(base64Images);
+  };
+
+  const convertFileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
   };
 
   const handleDrop = (event: React.DragEvent<HTMLLabelElement>) => {
@@ -52,15 +68,6 @@ function UploadRugs() {
       });
       return;
     }
-    const finalData = {
-      ...data,
-      selectedRugSize,
-      color,
-      material,
-      quality,
-      previewImageUrls,
-    };
-    console.log(finalData);
 
     const rugData: Partial<rugParams> = {
       rugName: data.rugTitle,
@@ -72,10 +79,24 @@ function UploadRugs() {
       rugColors: color,
       rugQuality: quality,
       token: localStorage.getItem("token") as string,
+      rugMaterials: material,
     };
 
-    await createRug(rugData);
-
+    createRug(rugData).then((response) => {
+      console.log(response);
+      if (response) {
+        alert("Rug created successfully");
+        reset();
+        setPreviewImageUrls([]);
+        setSelectedRugSize([]);
+        setMaterial([])
+        setColor([]);
+        setMaterial([]);
+        setQuality("Low");
+        setDragging(false);
+      }
+    });
+    // Handle the form submission logic here
   };
 
   return (
@@ -116,7 +137,6 @@ function UploadRugs() {
           className="hidden"
           id="file-upload"
           onChange={handleFileChange}
-          // {...register("rugImages", { required: true })}
         />
         <label
           htmlFor="file-upload"

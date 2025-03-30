@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Home, Package, Upload, LogOut, Menu, X } from "lucide-react";
 import UploadRugs from "./upload-rug/UploadRugs";
 import { useRouter } from "next/navigation";
+import DashboardRugsListing from "./rug/DashboardRugsListing";
 
 const Dashboard = () => {
   const [active, setActive] = useState("home");
@@ -18,7 +19,7 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (active) {
       case "rugs":
-        return <h2 className="text-2xl font-bold">All Rugs Listing</h2>;
+        return <DashboardRugsListing/>;
       case "upload":
         return <UploadRugs />;
       default:
@@ -31,7 +32,7 @@ const Dashboard = () => {
     if (!token) {
       router.push("/sign-in");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="flex">
@@ -86,7 +87,9 @@ const Dashboard = () => {
         </nav>
         <button
           className="flex items-center space-x-3 p-3 rounded-lg"
-          onClick={() => localStorage.removeItem("token")}
+          onClick={() => (
+            localStorage.removeItem("token"), router.push("/sign-in")
+          )}
         >
           <LogOut size={20} />
           <span>Logout</span>

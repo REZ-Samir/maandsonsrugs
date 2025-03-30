@@ -9,10 +9,11 @@ const rugSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    rugImg: [{
-        type: String,
+    rugImg: {
+        type: [String],
         required: true,
-    }],
+        default: [],
+    },
     rugDescription: {
         type: String,
         required: true,
@@ -21,18 +22,21 @@ const rugSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    rugSizes: [{
-        type: String,
+    rugSizes: {
+        type: [String],
         required: true,
-    }],
-    rugColors: [{
-        type: String,
+        default: [],
+    },
+    rugColors: {
+        type: [String],
         required: true,
-    }],
-    rugMaterial: [{
-        type: String,
+        default: [],
+    },
+    rugMaterial: {
+        type: [String],
         required: true,
-    }],
+        default: [],
+    },
     rugQuality: {
         type: String,
         required: true,

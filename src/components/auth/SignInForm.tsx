@@ -1,28 +1,16 @@
 "use client";
-import { createUser, loginUser } from "@/lib/actions/user.action";
+import { loginUser } from "@/lib/actions/user.action";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 function SignInForm() {
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const handleSignIn = async (data: any) => {
+  const handleSignIn: SubmitHandler<FieldValues> = async (data) => {
     try {
       console.log(data.email, data.password);
-
-      // const response = await createUser({
-      //   email: "m.aandsonsrugs@gmail.com",
-      //   password: "admin",
-      //   confirmPassword: "admin",
-      //   name:"admin",
-      // });
-      // console.log(response);
 
       const response = await loginUser({
         email: data.email,
