@@ -6,17 +6,19 @@ import { verifyToken } from "./user.action";
 import cloudinary from "cloudinary";
 
 export interface rugParams {
-    _id: string;
+  _id: string;
   rugName: string;
   rugPrice: number;
   rugImg: string[];
   rugDescription: string;
-  rugCode: number;
+  rugCode: string;
   rugSizes: string[];
   rugColors: string[];
   rugMaterials: string[];
   path: string;
   rugQuality: string;
+  rugCategory: string[];
+  rugStyle: string;
   token: string;
 }
 
@@ -37,6 +39,7 @@ export async function createRug({
   token,
   rugQuality,
   rugMaterials,
+  rugStyle,
 }: Partial<rugParams>) {
   try {
     connectToDB();
@@ -44,6 +47,7 @@ export async function createRug({
       throw new Error("Token is required");
     }
     verifyToken(token);
+    console.log(rugCode?.toString(), "rugCode");
 
     if (
       !rugName ||
@@ -54,7 +58,8 @@ export async function createRug({
       !rugSizes ||
       !rugColors ||
       !rugQuality ||
-      !rugMaterials
+      !rugMaterials ||
+      !rugStyle
     ) {
       throw new Error("All fields are required");
     }
@@ -77,10 +82,11 @@ export async function createRug({
       rugSizes: rugSizes,
       rugColors: rugColors,
       rugQuality: rugQuality,
-      rugMaterial: rugMaterials,
+      rugMaterials: rugMaterials,
+      rugStyle: rugStyle,
     });
 
-    await newRug.save({ validateBeforeSave: false }); // Avoid unnecessary validations
+    await newRug.save(); // Avoid unnecessary validations
 
     if (!createRug) {
       throw new Error("Failed to create a new rug");
@@ -105,7 +111,7 @@ export async function getAllRugs() {
     if (allRugs.length === 0) {
       return { message: "No rugs found", rugs: [] };
     }
-    const data = JSON.parse(JSON.stringify(allRugs))
+    const data = JSON.parse(JSON.stringify(allRugs));
 
     return { message: "All rugs fetched successfully", rugs: data };
   } catch (error) {
@@ -173,6 +179,9 @@ export async function updateRug(
     rugCode,
     rugSizes,
     rugColors,
+    rugMaterials,
+    rugQuality,
+    rugCategory,
   }: rugParams
 ) {
   try {
@@ -204,6 +213,9 @@ export async function updateRug(
         rugCode: rugCode,
         rugSizes: rugSizes,
         rugColors: rugColors,
+        rugQuality: rugQuality,
+        rugMaterial: rugMaterials,
+        rugCategory: rugCategory,
       },
       { new: true }
     );

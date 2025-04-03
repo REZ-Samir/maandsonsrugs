@@ -52,14 +52,14 @@ const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({
     <div className="relative " ref={dropdownRef}>
       {/* Input box with selected tags */}
       <div
-        className="w-full p-2 py-3 rounded-md bg-gray-100 flex overflow-auto  gap-2 cursor-pointer"
+        className={`w-full ${selectedOptions.length > 0 ? "p-1" : "p-2"} rounded-md border border-gray-200 flex overflow-auto  gap-2 cursor-pointer`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {selectedOptions.length > 0 ? (
           selectedOptions.map((option) => (
             <span
               key={option}
-              className="px-2 py-1 bg-gray-200 rounded-md flex items-center"
+              className="py-1 px-1 bg-gray-200 rounded-md flex items-center"
             >
               {option}
               <button

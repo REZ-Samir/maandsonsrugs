@@ -2,6 +2,8 @@ import { Divider } from "@/components/common/CommonUtility";
 import MultiSelectDropdown from "@/components/common/dropdown/MultiSelectDropDown";
 import MultiColorInput from "@/components/common/input/MultiInput";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { createRug, rugParams } from "@/lib/actions/rug.action";
 import { Upload } from "lucide-react";
 import Image from "next/image";
@@ -68,6 +70,27 @@ function UploadRugs() {
       });
       return;
     }
+    if (previewImageUrls.length === 0) {
+      setError("rugImages", {
+        type: "manual",
+        message: "This field is required!",
+      });
+      return;
+    }
+    if (color.length === 0) {
+      setError("rugColors", {
+        type: "manual",
+        message: "This field is required!",
+      });
+      return;
+    }
+    if (material.length === 0) {
+      setError("rugMaterial", {
+        type: "manual",
+        message: "This field is required!",
+      });
+      return;
+    }
 
     const rugData: Partial<rugParams> = {
       rugName: data.rugTitle,
@@ -78,9 +101,12 @@ function UploadRugs() {
       rugSizes: selectedRugSize,
       rugColors: color,
       rugQuality: quality,
+      rugStyle: data.rugType,
       token: localStorage.getItem("token") as string,
       rugMaterials: material,
     };
+
+    console.log(rugData, "rugData");
 
     createRug(rugData).then((response) => {
       console.log(response);
@@ -89,7 +115,7 @@ function UploadRugs() {
         reset();
         setPreviewImageUrls([]);
         setSelectedRugSize([]);
-        setMaterial([])
+        setMaterial([]);
         setColor([]);
         setMaterial([]);
         setQuality("Low");
@@ -113,29 +139,30 @@ function UploadRugs() {
         className="flex flex-col gap-5"
         onSubmit={handleSubmit(handleFormSubmit)}
       >
-        <input
+        <Input
           type="text"
           placeholder="Rug Title"
-          className="w-full bg-gray-100 px-4 py-3 rounded-md"
+          className="w-full border border-gray-200 px-4 py-3 rounded-md"
           {...register("rugTitle", { required: true })}
         />
         {errors.rugTitle && (
           <span className="text-red-500">This field is required*</span>
         )}
-        <textarea
+        <Textarea
           placeholder="Rug Description"
-          className="bg-gray-100 px-4 py-2 rounded-md"
+          className="border border-gray-200 px-4 py-2 rounded-md"
           {...register("rugDescription", { required: true })}
-        ></textarea>
+        />
         {errors.rugDescription && (
           <span className="text-red-500">This field is required*</span>
         )}
 
-        <input
+        <Input
           type="file"
           accept="image/*"
           className="hidden"
           id="file-upload"
+          multiple
           onChange={handleFileChange}
         />
         <label
@@ -179,10 +206,10 @@ function UploadRugs() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <input
+            <Input
               type="text"
               placeholder="Rug Type"
-              className="w-full bg-gray-100 px-4 py-3 rounded-md"
+              className="w-full border border-gray-200 px-4 py-3 rounded-md"
               {...register("rugType", { required: true })}
             />
             {errors.rugType && (
@@ -190,10 +217,10 @@ function UploadRugs() {
             )}
           </div>
           <div>
-            <input
+            <Input
               type="text"
               placeholder="Rug Code"
-              className="w-full bg-gray-100 px-4 py-3 rounded-md"
+              className="w-full border border-gray-200 px-4 py-3 rounded-md"
               {...register("rugCode", { required: true })}
             />
             {errors.rugCode && (
@@ -226,7 +253,7 @@ function UploadRugs() {
           <select
             value={quality}
             onChange={(e) => setQuality(e.target.value)}
-            className="w-full bg-gray-100 px-4 py-3 rounded-md"
+            className="w-full border border-gray-200 px-4 py-3 rounded-md"
           >
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>

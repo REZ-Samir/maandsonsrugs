@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 import {
   Table,
   TableBody,
@@ -7,13 +9,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  deleteRug,
-  getAllRugs,
-  getSingleRug,
-  rugParams,
-} from "@/lib/actions/rug.action";
+import { deleteRug, getAllRugs, rugParams } from "@/lib/actions/rug.action";
 import React, { useEffect, useState } from "react";
+import EditRugModal from "./EditRugModal";
 
 function DashboardRugsListing() {
   const [rugs, setRugs] = useState<rugParams[]>([]);
@@ -49,16 +47,6 @@ function DashboardRugsListing() {
     );
   }
 
-  const handleRugEdit = async (rugId: string) => {
-    try {
-      const response = await getSingleRug(rugId);
-      console.log(response);
-      // Handle the response as needed
-    } catch (error) {
-      console.error("Error fetching rug:", error);
-    }
-  };
-
   return (
     <section>
       <Table>
@@ -67,7 +55,7 @@ function DashboardRugsListing() {
           <TableRow>
             <TableHead className="w-[100px]">Rug Id</TableHead>
             <TableHead>Rug Name</TableHead>
-            <TableHead>Rug Price</TableHead>
+            <TableHead className="max-w-[70px]">Rug Price</TableHead>
             <TableHead>Rug Description</TableHead>
             <TableHead>Rug Quality</TableHead>
             <TableHead>Rug Size</TableHead>
@@ -77,25 +65,31 @@ function DashboardRugsListing() {
         <TableBody>
           {rugs.map((rug, index) => (
             <TableRow key={index}>
-              <TableCell className="font-medium">{rug._id}</TableCell>
+              <TableCell className="font-medium max-w-[100px] overflow-hidden overflow-ellipsis">
+                {index + 1}
+              </TableCell>
               <TableCell>{rug.rugName}</TableCell>
-              <TableCell>${rug.rugPrice}</TableCell>
-              <TableCell>{rug.rugDescription}</TableCell>
+              <TableCell className="text-right max-w-[50px]">
+                ${rug.rugPrice}
+              </TableCell>
+              <TableCell className="max-w-[400px] overflow-ellipsis overflow-hidden text-nowrap">
+                {rug.rugDescription}
+              </TableCell>
               <TableCell>{rug.rugQuality}</TableCell>
               <TableCell>{rug.rugSizes?.join(", ")}</TableCell>
               <TableCell className="text-right">
-                <button
+                <Button
+                  variant="outline"
                   className="bg-red-500 text-white px-4 py-2 rounded"
                   onClick={() => {
-                    // Handle delete action
                     handleRugDelete(rug._id);
                   }}
                 >
                   Delete
-                </button>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded ml-2" onClick={() => handleRugEdit(rug._id)}>
-                  Edit
-                </button>
+                </Button>
+
+                {/* Modal for editing rug */}
+                <EditRugModal singleRugData={rug} />
               </TableCell>
             </TableRow>
           ))}

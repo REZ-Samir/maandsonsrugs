@@ -35,7 +35,7 @@ const MultiColorInput = ({
   };
 
   return (
-    <div className=" rounded-md p-2 bg-gray-100">
+    <div className=" rounded-md p-1 border border-gray-300">
       {/* Display Selected Colors */}
       <div className="flex overflow-auto items-center gap-2">
         {data.map((color) => (
@@ -60,7 +60,7 @@ const MultiColorInput = ({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className="flex-1 outline-none bg-gray-100 py-1"
+          className="flex-1 outline-none  py-1"
         />
       </div>
     </div>
