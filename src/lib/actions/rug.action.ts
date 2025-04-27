@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import Rug from "../models/rug.model";
 import { connectToDB } from "../mongoose";
 import { verifyToken } from "./user.action";
@@ -169,25 +170,25 @@ export async function deleteRug(id: string) {
   }
 }
 
-export async function updateRug(
-  id: string,
-  {
-    rugName,
-    rugPrice,
-    rugImg,
-    rugDescription,
-    rugCode,
-    rugSizes,
-    rugColors,
-    rugMaterials,
-    rugQuality,
-    rugCategory,
-  }: rugParams
-) {
+export async function updateRug({
+  _id,
+  rugName,
+  rugPrice,
+  rugImg,
+  rugDescription,
+  rugCode,
+  rugSizes,
+  rugColors,
+  rugMaterials,
+  rugQuality,
+  rugStyle,
+  rugCategory,
+  path,
+}: Partial<rugParams>) {
   try {
     connectToDB();
 
-    if (!id) {
+    if (!_id) {
       throw new Error("Rug id is required");
     }
 
@@ -204,7 +205,7 @@ export async function updateRug(
     }
 
     const updateRug = await Rug.findByIdAndUpdate(
-      id,
+      _id,
       {
         rugName: rugName,
         rugPrice: rugPrice,
@@ -216,6 +217,7 @@ export async function updateRug(
         rugQuality: rugQuality,
         rugMaterial: rugMaterials,
         rugCategory: rugCategory,
+        rugStyle: rugStyle,
       },
       { new: true }
     );
@@ -223,8 +225,10 @@ export async function updateRug(
     if (!updateRug) {
       throw new Error("Rug not found");
     }
+    const data = JSON.parse(JSON.stringify(updateRug));
+    revalidatePath(path!);
 
-    return { message: "Rug updated successfully", rug: updateRug };
+    return { message: "Rug updated successfully", rug: data, status: 200 };
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(`Failed to update rug ${error.message}`);

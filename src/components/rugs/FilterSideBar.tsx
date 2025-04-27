@@ -38,8 +38,8 @@ const FilterSideBar: FC<FilterProps> = ({ filters, handleFilterChange }) => {
           <label key={color} className="flex items-center gap-2 mb-2">
             <input
               type="checkbox"
-              checked={filters.color.includes(color)}
-              onChange={() => handleFilterChange("color", color)}
+              checked={filters.color.includes(color.toLowerCase())}
+              onChange={() => handleFilterChange("color", color.toLowerCase())}
               className="w-4 h-4"
             />
             {color}
@@ -54,8 +54,8 @@ const FilterSideBar: FC<FilterProps> = ({ filters, handleFilterChange }) => {
           <label key={size} className="flex items-center gap-2 mb-2">
             <input
               type="checkbox"
-              checked={filters.size.includes(size)}
-              onChange={() => handleFilterChange("size", size)}
+              checked={filters.size.includes(size.toLowerCase())}
+              onChange={() => handleFilterChange("size", size.toLowerCase())}
               className="w-4 h-4"
             />
             {size}
@@ -70,8 +70,8 @@ const FilterSideBar: FC<FilterProps> = ({ filters, handleFilterChange }) => {
           <label key={material} className="flex items-center gap-2 mb-2">
             <input
               type="checkbox"
-              checked={filters.material.includes(material)}
-              onChange={() => handleFilterChange("material", material)}
+              checked={filters.material.includes(material.toLowerCase())}
+              onChange={() => handleFilterChange("material", material.toLowerCase())}
               className="w-4 h-4"
             />
             {material}
@@ -86,8 +86,8 @@ const FilterSideBar: FC<FilterProps> = ({ filters, handleFilterChange }) => {
           <label key={quality} className="flex items-center gap-2 mb-2">
             <input
               type="checkbox"
-              checked={filters.quality.includes(quality)}
-              onChange={() => handleFilterChange("quality", quality)}
+              checked={filters.quality.includes(quality.toLowerCase())}
+              onChange={() => handleFilterChange("quality", quality.toLowerCase())}
               className="w-4 h-4"
             />
             {quality}

@@ -2,8 +2,10 @@ import BreadCrumb from "@/components/common/breadcrumb/BreadCrumb";
 import React, { Suspense } from "react";
 import RugsListing from "@/components/rugs/RugsListing";
 import { Divider } from "@/components/common/CommonUtility";
+import { getAllRugs } from "@/lib/actions/rug.action";
 
-function page() {
+async function page() {
+  const rugsData = await getAllRugs();
   return (
     <div>
       <Divider></Divider>
@@ -12,7 +14,7 @@ function page() {
       <Divider></Divider>
 
       <Suspense fallback={<div>Loading Rugs...</div>}>
-        <RugsListing />
+        <RugsListing rugsData={rugsData.rugs}/>
       </Suspense>
       <Divider></Divider>
     </div>
